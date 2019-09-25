@@ -1,18 +1,16 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <Card></Card>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script>
+import Card from '../components/Card.vue';
 
-export default Vue.extend({
-  name: 'home',
+export default {
+  name: 'Home',
   components: {
-    HelloWorld,
+    Card,
   },
-});
+};
 </script>
