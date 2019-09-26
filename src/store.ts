@@ -12,6 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setCard(state, data) {
+      console.log(data, 111)
       const weatherList = data.list.map((weather: any) => ({
         clouds: weather.clouds.all,
         time: weather.dt,
@@ -20,6 +21,8 @@ export default new Vuex.Store({
           humidity: weather.main.humidity,
           pressure: weather.main.pressure,
           temp: weather.main.temp,
+          temp_min: weather.main.temp_min,
+          temp_max: weather.main.temp_max,
         },
       }));
 
