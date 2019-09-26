@@ -21,7 +21,7 @@ export default {
 <style lang="scss">
 .day {
     position: relative;
-    height: 100px;
+    height: 90px;
 
     &__cloud {
         width: 70px !important;

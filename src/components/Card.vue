@@ -1,17 +1,24 @@
 <template>
-    <div class="card mt-5 pa-3" v-if="getCard">
+    <div class="card mt-5 px-4 py-2" v-if="getCard">
         <p class="card__city mb-0 text-center">
             {{ getCard.city.name }}
             <span class="card__country overline">
                 {{ getCard.city.country }}
             </span>
         </p>
-        <p class="my-0 text-center caption">
+        <p class="card__date my-0 text-center caption">
             {{ currentDate }}
         </p>
-        <SunVisual :clouds="extendedWeather.averages.cloudsTotal" />
+        <SunVisual :clouds="extendedWeather.averages.clouds" />
+        <p class="mainTemp text-center">
+            <span class="display-2 font-weight-bold">
+                {{ getCard.weatherList[0].main.temp | kelvinsToCelsius }}
+            </span>
+            <span class="mainTemp__celsius">&#8451;</span>
+        </p>
+        <TimePeriods :periods="getCard.weatherList"/>
+<!--        <DayPeriods class="mt-10" :periods="extendedWeather.periods"/>-->
 
-        <DayPeriods :periods="extendedWeather.periods"/>
     </div>
 </template>
 
@@ -19,12 +26,14 @@
 import { mapGetters } from 'vuex';
 import SunVisual from './SunVisual.vue';
 import DayPeriods from './DayPeriods.vue';
+import TimePeriods from './TimePeriods.vue';
 
 export default {
   name: 'Card',
   components: {
     SunVisual,
     DayPeriods,
+    TimePeriods
   },
   computed: {
     ...mapGetters(['getCard']),
@@ -65,57 +74,36 @@ export default {
       this.getCard.weatherList.forEach((current) => {
         const time = new Date(current.time * 1000).getHours() + 1;
 
-        console.log(current);
-        if (new Date(current.time).getDay() === this.currentDay) {
-          timeCounter += 1;
-          // averages
-          weather.averages.cloudsTotal += current.clouds;
-          weather.averages.humidityTotal += current.main.humidity;
-          weather.averages.tempTotal += current.main.temp;
-          weather.averages.windTotal += current.wind;
-          // temp range
-          if (current.main.temp_min < weather.tempRange.minTemp || !weather.tempRange.minTemp) {
-            weather.tempRange.minTemp = current.main.temp_min;
-          }
+        timeCounter += 1;
+        // averages
+        weather.averages.cloudsTotal += current.clouds;
+        weather.averages.humidityTotal += current.main.humidity;
+        weather.averages.tempTotal += current.main.temp;
+        weather.averages.windTotal += current.wind;
+        // temp range
+        if (current.main.temp_min < weather.tempRange.minTemp || !weather.tempRange.minTemp) {
+          weather.tempRange.minTemp = current.main.temp_min;
+        }
 
-          if (current.main.temp_max > weather.tempRange.maxTemp || !weather.tempRange.maxTemp) {
-            weather.tempRange.maxTemp = current.main.temp_max;
-          }
-          // day periods
-          if (time >= 3 && time <= 12) {
-            weather.periods.totals.morning += current.main.temp;
-            weather.periods.counters.morning += 1;
-          }
-
-          if (time >= 9 && time <= 18) {
-            weather.periods.totals.day += current.main.temp;
-            weather.periods.counters.day += 1;
-          }
-
-          if (time >= 21 || time <= 6) {
-            weather.periods.totals.night += current.main.temp;
-            weather.periods.counters.night += 1;
-          }
+        if (current.main.temp_max > weather.tempRange.maxTemp || !weather.tempRange.maxTemp) {
+          weather.tempRange.maxTemp = current.main.temp_max;
         }
       });
+
+      console.log(weather, 333333);
 
       return {
         ...weather,
         averages: {
-          cloudsTotal: weather.averages.cloudsTotal / timeCounter,
-          humidityTotal: weather.averages.humidityTotal / timeCounter,
-          tempTotal: weather.averages.tempTotal / timeCounter,
-          windTotal: weather.averages.windTotal / timeCounter,
-        },
-        periods: {
-          morning: weather.periods.totals.morning / weather.periods.counters.morning,
-          day: weather.periods.totals.day / weather.periods.counters.day,
-          night: weather.periods.totals.night / weather.periods.counters.night,
+          clouds: weather.averages.cloudsTotal / timeCounter,
+          humidity: weather.averages.humidityTotal / timeCounter,
+          temp: weather.averages.tempTotal / timeCounter,
+          wind: weather.averages.windTotal / timeCounter,
         },
       };
     },
     currentDay() {
-      return new Date(this.getCard.weatherList[0].time).getDay();
+      return new Date(this.getCard.weatherList[0].time * 1000).getDay();
     },
   },
 };
@@ -127,14 +115,30 @@ export default {
 .card {
     width: 300px;
     height: 500px;
-    border: 1px solid red;
     margin: auto;
     border-radius: 10px;
-    background: cornflowerblue;
+    background-image: url("../assets/landscape.jpg");
     color: #FFF;
 
+    &__city {
+        color: $osloGray;
+    }
+
     &__country {
-        color: $aluminium;
+        color: darken($aluminium, 10%);
+    }
+
+    &__date {
+        color: $osloGray;
+        opacity: .5;
+    }
+}
+.mainTemp {
+    position: relative;
+
+    &__celsius {
+        position: absolute;
+        top: 5px;
     }
 }
 </style>

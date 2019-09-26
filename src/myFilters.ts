@@ -10,6 +10,7 @@ export default [
   {
     name: 'kelvinsToCelsius',
     handler(value) {
+      console.log(value)
       return Math.round(value - 273.15);
     },
   },
