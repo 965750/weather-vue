@@ -7,7 +7,7 @@
             <p class="my-0">{{ value }}</p>
         </div>
         <p class="attribute__label text-center px-1">
-            {{ label }}
+            {{ $t(label) }}
         </p>
     </div>
 </template>

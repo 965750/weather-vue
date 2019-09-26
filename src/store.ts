@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    lang: 'en',
+    lang: 'pl',
     card: null,
     error: null,
   },
@@ -56,5 +56,6 @@ export default new Vuex.Store({
   getters: {
     getCard: state => state.card,
     getError: state => state.error,
+    getLanguage: state => state.lang,
   },
 });

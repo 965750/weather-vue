@@ -8,7 +8,11 @@
                 {{ Math.round(time.main.temp) | kelvinsToCelsius }} &#8451;
             </p>
             <p class="period__label my-0 caption">
-                {{ checkHour(time.time, index) }}
+                {{
+                    checkHour(time.time, index) === 'now' ?
+                    $t(checkHour(time.time, index)) :
+                    checkHour(time.time, index)
+                }}
             </p>
         </v-col>
     </v-row>
@@ -28,7 +32,7 @@ export default {
       const date = new Date(time * 1000);
 
       if (index === 0) {
-        return 'NOW';
+        return 'now';
       }
 
       return `${date.getHours() + 1}:00`;
@@ -48,7 +52,8 @@ export default {
     }
 
     &__label {
-        color: $aluminium
+        color: $aluminium;
+        text-transform: uppercase;
     }
 }
 </style>

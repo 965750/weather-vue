@@ -1,7 +1,7 @@
 <template>
     <div class="search my-5 mx-auto">
         <p class="search__label my-0 pl-5">
-            Check Your city weather
+            {{ $t('Check Your city weather') }}
         </p>
         <form
             @submit.prevent="citySearch"
@@ -11,13 +11,13 @@
                 v-model="city"
                 class="search__field px-5"
                 type="text"
-                placeholder="city name"
+                :placeholder="$t('city name')"
             />
             <button
                 class="search__submit"
                 type="submit"
             >
-                Search
+                {{ $t('search') }}
             </button>
         </form>
         <p
