@@ -7,15 +7,16 @@
             </span>
         </p>
         <p class="card__date my-0 text-center caption">
-            {{ currentDate }}
+            {{ currentTime }}
         </p>
-        <SunVisual :clouds="extendedWeather.averages.clouds" />
+        <SunVisual :clouds="extendedWeather.averages.clouds" :rain="extendedWeather.rain" />
         <p class="mainTemp text-center">
             <span class="display-2 font-weight-bold">
                 {{ getCard.weatherList[0].main.temp | kelvinsToCelsius }}
             </span>
             <span class="mainTemp__celsius">&#8451;</span>
         </p>
+        <Statistics :weather="extendedWeather"/>
         <TimePeriods :periods="getCard.weatherList"/>
 <!--        <DayPeriods class="mt-10" :periods="extendedWeather.periods"/>-->
 
@@ -27,25 +28,35 @@ import { mapGetters } from 'vuex';
 import SunVisual from './SunVisual.vue';
 import DayPeriods from './DayPeriods.vue';
 import TimePeriods from './TimePeriods.vue';
+import Statistics from './Statistics.vue';
 
 export default {
   name: 'Card',
+  data() {
+    return {
+      currentTime: null,
+    };
+  },
   components: {
     SunVisual,
-    DayPeriods,
-    TimePeriods
+    Statistics,
+    TimePeriods,
   },
-  computed: {
-    ...mapGetters(['getCard']),
-    currentDate() {
+  methods: {
+    buildCurrentTime() {
       const time = new Date();
 
       const day = this.$options.filters.shortDaysOfWeek(time.getDay() - 1);
 
-      return `${day}, ${time.getHours()}:${time.getMinutes()}`;
+      this.currentTime = `${day}, ${time.getHours()}:${time.getMinutes()}`;
     },
+  },
+  computed: {
+    ...mapGetters(['getCard']),
     extendedWeather() {
-      let timeCounter = 0;
+      this.buildCurrentTime();
+
+      const { length } = this.getCard.weatherList;
       const weather = {
         tempRange: {
           minTemp: 0,
@@ -57,24 +68,9 @@ export default {
           tempTotal: 0,
           windTotal: 0,
         },
-        periods: {
-          totals: {
-            morning: 0,
-            day: 0,
-            night: 0,
-          },
-          counters: {
-            morning: 0,
-            day: 0,
-            night: 0,
-          },
-        },
       };
 
       this.getCard.weatherList.forEach((current) => {
-        const time = new Date(current.time * 1000).getHours() + 1;
-
-        timeCounter += 1;
         // averages
         weather.averages.cloudsTotal += current.clouds;
         weather.averages.humidityTotal += current.main.humidity;
@@ -90,20 +86,16 @@ export default {
         }
       });
 
-      console.log(weather, 333333);
-
       return {
         ...weather,
+        rain: this.getCard.weatherList[0].rain ? this.getCard.weatherList[0].rain : null,
         averages: {
-          clouds: weather.averages.cloudsTotal / timeCounter,
-          humidity: weather.averages.humidityTotal / timeCounter,
-          temp: weather.averages.tempTotal / timeCounter,
-          wind: weather.averages.windTotal / timeCounter,
+          clouds: weather.averages.cloudsTotal / length,
+          humidity: weather.averages.humidityTotal / length,
+          temp: weather.averages.tempTotal / length,
+          wind: weather.averages.windTotal / length,
         },
       };
-    },
-    currentDay() {
-      return new Date(this.getCard.weatherList[0].time * 1000).getDay();
     },
   },
 };

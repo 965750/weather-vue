@@ -1,8 +1,32 @@
 <template>
-    <div class="day ">
-        <font-awesome-icon v-if="clouds > 33" class="day__cloud day__cloud--left" icon="cloud" />
-        <font-awesome-icon v-if="clouds > 66" class="day__cloud day__cloud--right" icon="cloud" />
-        <font-awesome-icon :class="{'day__sun': true, 'day__sun--oneCloud': clouds > 33 && clouds < 67}" icon="sun" />
+    <div class="day">
+        <font-awesome-icon
+            v-if="clouds > 20" class="day__cloud day__cloud--left"
+            icon="cloud"
+        />
+        <font-awesome-icon
+            v-if="clouds > 70" class="day__cloud day__cloud--right"
+            icon="cloud"
+        />
+        <font-awesome-icon
+            :class="{'day__sun': true, 'day__sun--oneCloud': clouds > 20 && clouds < 70}"
+            icon="sun"
+        />
+        <div v-if="
+            clouds > 20 &&
+            rain &&
+            Object.entries(rain).length !== 0 &&
+            rain.constructor === Object
+        ">
+            <font-awesome-icon
+                class="day__rain day__rain--left"
+                icon="tint"
+            />
+            <font-awesome-icon
+                class="day__rain day__rain--right"
+                icon="tint"
+            />
+        </div>
     </div>
 </template>
 
@@ -13,6 +37,10 @@ export default {
     clouds: {
       required: true,
       type: Number,
+    },
+    rain: {
+      required: false,
+      default: null,
     },
   },
 };
@@ -28,7 +56,7 @@ export default {
         height: 60px;
         position: absolute;
         color: #d8faff;
-        z-index: 3;
+        z-index: 2;
 
         &--right {
             top: 50%;
@@ -40,6 +68,24 @@ export default {
             top: 50%;
             left: 27%;
             transform: translate(0, -40%) scaleX(-1);
+        }
+    }
+
+    &__rain {
+        width: 20px !important;
+        height: 20px;
+        position: absolute;
+        color: #588dcb;
+        z-index: 3;
+
+        &--left {
+            top: 68%;
+            left: 30%;
+        }
+
+        &--right {
+            top: 62%;
+            left: 41%;
         }
     }
 

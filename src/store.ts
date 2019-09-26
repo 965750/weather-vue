@@ -17,6 +17,7 @@ export default new Vuex.Store({
         clouds: weather.clouds.all,
         time: weather.dt,
         wind: weather.wind.speed,
+        rain: weather.rain ? weather.rain : null,
         main: {
           humidity: weather.main.humidity,
           pressure: weather.main.pressure,

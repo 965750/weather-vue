@@ -7,10 +7,10 @@ import vuetify from './plugins/vuetify';
 import myFilters from './myFilters';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCloud, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faCloud, faSun, faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faCloud, faSun);
+library.add(faCloud, faSun, faTint);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
