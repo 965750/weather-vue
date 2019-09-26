@@ -35,10 +35,13 @@ export default new Vuex.Store({
   actions: {
     citySearch({ commit }, city: string) {
       axios
-        .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${config.apiKey}`)
+        .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=${config.cnt}&APPID=${config.apiKey}`)
         .then((res) => {
           commit('setCard', res.data);
         });
     },
+  },
+  getters: {
+    getCard: state => state.card,
   },
 });
