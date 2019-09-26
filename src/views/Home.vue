@@ -1,7 +1,7 @@
 <template>
   <div>
     <Search></Search>
-    <Card></Card>
+    <Card class="mt-8"></Card>
   </div>
 </template>
 
