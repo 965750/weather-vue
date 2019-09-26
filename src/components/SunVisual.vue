@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .day {
     position: relative;
     height: 90px;
@@ -79,13 +79,13 @@ export default {
         z-index: 3;
 
         &--left {
-            top: 68%;
+            top: 69%;
             left: 30%;
         }
 
         &--right {
-            top: 62%;
-            left: 41%;
+            top: 61%;
+            left: 42%;
         }
     }
 

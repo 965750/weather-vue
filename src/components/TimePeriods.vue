@@ -5,7 +5,7 @@
             v-for="(time, index) in periods" :key="time.time"
         >
             <p class="my-0 caption  font-weight-bold">
-                {{ time.main.temp | kelvinsToCelsius}} &#8451;
+                {{ Math.round(time.main.temp) | kelvinsToCelsius }} &#8451;
             </p>
             <p class="period__label my-0 caption">
                 {{ checkHour(time.time, index) }}
@@ -31,7 +31,7 @@ export default {
         return 'NOW';
       }
 
-      return `${date.getHours()}:00`;
+      return `${date.getHours() + 1}:00`;
     },
   },
 };

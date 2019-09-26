@@ -7,10 +7,12 @@ import vuetify from './plugins/vuetify';
 import myFilters from './myFilters';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCloud, faSun, faTint } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCloud, faSun, faTint, faTemperatureLow, faTemperatureHigh, faThermometerHalf, faThermometerQuarter, faWind,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faCloud, faSun, faTint);
+library.add(faCloud, faSun, faTint, faTemperatureLow, faTemperatureHigh, faThermometerHalf, faThermometerQuarter, faWind);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

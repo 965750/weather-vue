@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     citySearch() {
-      console.log(this.city);
       this.$store.dispatch('citySearch', this.city);
     },
   },
