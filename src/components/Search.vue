@@ -1,29 +1,46 @@
 <template>
-    <div class="search">
+    <div class="search my-5 mx-auto">
         <p class="search__label my-0 pl-5">
             Check Your city weather
         </p>
-        <form @submit.prevent="citySearch" class="search__form d-flex">
+        <form
+            @submit.prevent="citySearch"
+            class="search__form d-flex"
+        >
             <input
                 v-model="city"
                 class="search__field px-5"
                 type="text"
                 placeholder="city name"
             />
-            <button class="search__submit" type="submit">
+            <button
+                class="search__submit"
+                type="submit"
+            >
                 Search
             </button>
         </form>
+        <p
+            v-if="getError"
+            class="search__error pl-5 caption"
+        >
+            {{ getError }}
+        </p>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Search',
   data() {
     return {
       city: '',
     };
+  },
+  computed: {
+    ...mapGetters(['getError']),
   },
   methods: {
     citySearch() {
@@ -62,6 +79,14 @@ export default {
         &::placeholder {
             color: $aluminium;
         }
+
+        &:focus {
+            border: 1px solid $deepCerulean;
+        }
+    }
+
+    &__error {
+        color: $persimmon;
     }
 
     &__submit {

@@ -47,6 +47,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/main';
+
 .day {
     position: relative;
     height: 90px;
@@ -55,7 +57,7 @@ export default {
         width: 70px !important;
         height: 60px;
         position: absolute;
-        color: #d8faff;
+        color: $oysterBay;
         z-index: 2;
 
         &--right {
@@ -75,7 +77,7 @@ export default {
         width: 20px !important;
         height: 20px;
         position: absolute;
-        color: #588dcb;
+        color: $danube;
         z-index: 3;
 
         &--left {
@@ -90,7 +92,7 @@ export default {
     }
 
     &__sun {
-        color: #fff891;
+        color: $witchHaze;
         width: 80px !important;
         height: 80px;
         position: absolute;

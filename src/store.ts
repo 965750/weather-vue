@@ -9,9 +9,12 @@ export default new Vuex.Store({
   state: {
     lang: 'en',
     card: null,
+    error: null,
   },
   mutations: {
     setCard(state, data) {
+      state.error = null;
+
       const weatherList = data.list.map((weather: any) => ({
         clouds: weather.clouds.all,
         time: weather.dt,
@@ -34,6 +37,9 @@ export default new Vuex.Store({
         weatherList,
       };
     },
+    setCard__Error(state, data) {
+      state.error = 'We could not find this city name';
+    },
   },
   actions: {
     citySearch({ commit }, city: string) {
@@ -41,10 +47,14 @@ export default new Vuex.Store({
         .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=${config.cnt}&APPID=${config.apiKey}`)
         .then((res) => {
           commit('setCard', res.data);
+        })
+        .catch((err) => {
+          commit('setCard__Error', err);
         });
     },
   },
   getters: {
     getCard: state => state.card,
+    getError: state => state.error,
   },
 });
