@@ -21,6 +21,9 @@ const initialStore = {
   getters: {
     getLanguage: () => 'en',
   },
+  actions: {
+    changeLanguage: jest.fn(),
+  },
 };
 
 describe('LanguageSwitcher.vue', () => {
@@ -41,6 +44,7 @@ describe('LanguageSwitcher.vue', () => {
 
   it('should swap active button', () => {
     const wrapper = createWrapper({
+      ...initialStore,
       getters: {
         getLanguage: () => 'pl',
       },
