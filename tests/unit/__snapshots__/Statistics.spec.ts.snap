@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Statistics.vue should match initial snapshot 1`] = `
+<div
+  class="d-flex justify-center flex-wrap"
+>
+  <singleattribute-stub
+    icon="temperature-low"
+    label="min. temp."
+    value="-262 	℃"
+  />
+  <singleattribute-stub
+    icon="temperature-high"
+    label="max. temp."
+    value="-258 	℃"
+  />
+  <singleattribute-stub
+    icon="thermometer-half"
+    label="mean temp."
+    value="-260 	℃"
+  />
+  <singleattribute-stub
+    icon="thermometer-quarter"
+    label="mode temp."
+    value="-261 	℃"
+  />
+  <singleattribute-stub
+    icon="cloud"
+    label="clouds"
+    value="10%"
+  />
+  <singleattribute-stub
+    icon="wind"
+    label="wind"
+    value="5.00 m/s"
+  />
+  <singleattribute-stub
+    icon="tint"
+    label="humidity"
+    value="22%"
+  />
+</div>
+`;

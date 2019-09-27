@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 import axios from 'axios';
 import config from '@/config';
 
+import mutations from './mutations';
+import getters from './getters';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -10,36 +13,6 @@ export default new Vuex.Store({
     lang: 'pl',
     card: null,
     error: null,
-  },
-  mutations: {
-    setCard(state, data) {
-      state.error = null;
-
-      const weatherList = data.list.map((weather: any) => ({
-        clouds: weather.clouds.all,
-        time: weather.dt,
-        wind: weather.wind.speed,
-        rain: weather.rain ? weather.rain : null,
-        main: {
-          humidity: weather.main.humidity,
-          pressure: weather.main.pressure,
-          temp: weather.main.temp,
-          temp_min: weather.main.temp_min,
-          temp_max: weather.main.temp_max,
-        },
-      }));
-
-      state.card = {
-        city: {
-          name: data.city.name,
-          country: data.city.country,
-        },
-        weatherList,
-      };
-    },
-    setCard__Error(state, data) {
-      state.error = 'We could not find this city name';
-    },
   },
   actions: {
     citySearch({ commit }, city: string) {
@@ -53,9 +26,6 @@ export default new Vuex.Store({
         });
     },
   },
-  getters: {
-    getCard: state => state.card,
-    getError: state => state.error,
-    getLanguage: state => state.lang,
-  },
+  mutations,
+  getters,
 });

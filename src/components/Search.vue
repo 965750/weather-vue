@@ -4,16 +4,19 @@
             {{ $t('Check Your city weather') }}
         </p>
         <form
+            id="searchForm"
             @submit.prevent="citySearch"
             class="search__form d-flex"
         >
             <input
+                id="searchField"
                 v-model="city"
                 class="search__field px-5"
                 type="text"
                 :placeholder="$t('city name')"
             />
             <button
+                :disable="!city"
                 class="search__submit"
                 type="submit"
             >
@@ -45,6 +48,8 @@ export default {
   methods: {
     citySearch() {
       this.$store.dispatch('citySearch', this.city);
+
+      this.city = '';
     },
   },
 };

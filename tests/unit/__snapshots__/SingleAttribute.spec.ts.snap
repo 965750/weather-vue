@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleAttribute.vue should match initial snapshot 1`] = `
+<div
+  class="attribute mb-4 pa-0"
+>
+  <div
+    class="attribute__value pt-1 text-center px-1"
+  >
+    <font-awesome-icon-stub
+      icon="sun"
+    />
+     
+    <p
+      class="my-0"
+    >
+      25
+    </p>
+  </div>
+   
+  <p
+    class="attribute__label text-center px-1"
+  >
+    
+        chmury
+    
+  </p>
+</div>
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePeriods.vue should match initial snapshot with valid hour format 1`] = `
+<v-row-stub>
+  <v-col-stub
+    class="text-center pa-1"
+  >
+    <p
+      class="my-0 caption  font-weight-bold"
+    >
+      
+            -251 ℃
+        
+    </p>
+     
+    <p
+      class="period__label my-0 caption"
+    >
+      
+            teraz
+        
+    </p>
+  </v-col-stub>
+  <v-col-stub
+    class="text-center pa-1 period__block--divider"
+  >
+    <p
+      class="my-0 caption  font-weight-bold"
+    >
+      
+            -249 ℃
+        
+    </p>
+     
+    <p
+      class="period__label my-0 caption"
+    >
+      
+            23:00
+        
+    </p>
+  </v-col-stub>
+</v-row-stub>
+`;

@@ -1,7 +1,7 @@
 export default [
   {
     name: 'shortDaysOfWeek',
-    handler(value) {
+    handler(value: number) {
       const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
       return daysOfWeek[value].substr(0, 3);
@@ -9,7 +9,7 @@ export default [
   },
   {
     name: 'kelvinsToCelsius',
-    handler(value) {
+    handler(value: number) {
       return `${Math.round(value - 273.15)}`;
     },
   },

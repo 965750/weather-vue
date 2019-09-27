@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search.vue should match initial snapshot 1`] = `
+<div
+  class="search my-5 mx-auto"
+>
+  <p
+    class="search__label my-0 pl-5"
+  >
+    
+        Sprawdź pogodę w swoim mieście
+    
+  </p>
+   
+  <form
+    class="search__form d-flex"
+    id="searchForm"
+  >
+    <input
+      class="search__field px-5"
+      id="searchField"
+      placeholder="nazwa miasta"
+      type="text"
+    />
+     
+    <button
+      class="search__submit"
+      disable="true"
+      type="submit"
+    >
+      
+            szukaj
+        
+    </button>
+  </form>
+   
+  <p
+    class="search__error pl-5 caption"
+  >
+    
+        We could not find this city name
+    
+  </p>
+</div>
+`;
+
+exports[`Search.vue should match snapshot without error notification 1`] = `
+<div
+  class="search my-5 mx-auto"
+>
+  <p
+    class="search__label my-0 pl-5"
+  >
+    
+        Sprawdź pogodę w swoim mieście
+    
+  </p>
+   
+  <form
+    class="search__form d-flex"
+    id="searchForm"
+  >
+    <input
+      class="search__field px-5"
+      id="searchField"
+      placeholder="nazwa miasta"
+      type="text"
+    />
+     
+    <button
+      class="search__submit"
+      disable="true"
+      type="submit"
+    >
+      
+            szukaj
+        
+    </button>
+  </form>
+   
+  <!---->
+</div>
+`;

@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card.vue should match initial snapshot 1`] = `
+<div
+  class="card mt-5 px-3 py-2"
+>
+  <p
+    class="card__city mb-0 text-center"
+  >
+    
+        Berlin
+        
+    <span
+      class="card__country overline"
+    >
+      
+            de
+        
+    </span>
+  </p>
+   
+  <p
+    class="card__date my-0 text-center caption"
+  >
+    
+        
+    
+  </p>
+   
+  <sunvisual-stub
+    clouds="10.5"
+    rain="2"
+  />
+   
+  <p
+    class="mainTemp text-center"
+  >
+    <span
+      class="display-2 font-weight-bold"
+    >
+      
+            15
+        
+    </span>
+     
+    <span
+      class="mainTemp__celsius"
+    >
+      ℃
+    </span>
+  </p>
+   
+  <statistics-stub
+    class="card__statistics"
+    weather="[object Object]"
+  />
+   
+  <timeperiods-stub
+    class="card__timePeriods"
+    periods="[object Object],[object Object]"
+  />
+</div>
+`;
+
+exports[`Card.vue should update pass NO raid in extendedWeather 1`] = `
+<div
+  class="card mt-5 px-3 py-2"
+>
+  <p
+    class="card__city mb-0 text-center"
+  >
+    
+        Berlin
+        
+    <span
+      class="card__country overline"
+    >
+      
+            de
+        
+    </span>
+  </p>
+   
+  <p
+    class="card__date my-0 text-center caption"
+  >
+    
+        
+    
+  </p>
+   
+  <sunvisual-stub
+    clouds="10"
+  />
+   
+  <p
+    class="mainTemp text-center"
+  >
+    <span
+      class="display-2 font-weight-bold"
+    >
+      
+            15
+        
+    </span>
+     
+    <span
+      class="mainTemp__celsius"
+    >
+      ℃
+    </span>
+  </p>
+   
+  <statistics-stub
+    class="card__statistics"
+    weather="[object Object]"
+  />
+   
+  <timeperiods-stub
+    class="card__timePeriods"
+    periods="[object Object]"
+  />
+</div>
+`;
+
+exports[`Card.vue should update set valid dominant value as mostCommon temp 1`] = `
+<div
+  class="card mt-5 px-3 py-2"
+>
+  <p
+    class="card__city mb-0 text-center"
+  >
+    
+        Berlin
+        
+    <span
+      class="card__country overline"
+    >
+      
+            de
+        
+    </span>
+  </p>
+   
+  <p
+    class="card__date my-0 text-center caption"
+  >
+    
+        
+    
+  </p>
+   
+  <sunvisual-stub
+    clouds="10.666666666666666"
+    rain="2"
+  />
+   
+  <p
+    class="mainTemp text-center"
+  >
+    <span
+      class="display-2 font-weight-bold"
+    >
+      
+            15
+        
+    </span>
+     
+    <span
+      class="mainTemp__celsius"
+    >
+      ℃
+    </span>
+  </p>
+   
+  <statistics-stub
+    class="card__statistics"
+    weather="[object Object]"
+  />
+   
+  <timeperiods-stub
+    class="card__timePeriods"
+    periods="[object Object],[object Object],[object Object]"
+  />
+</div>
+`;
+
+exports[`Card.vue should update temp_min in extendedWeather 1`] = `
+<div
+  class="card mt-5 px-3 py-2"
+>
+  <p
+    class="card__city mb-0 text-center"
+  >
+    
+        Berlin
+        
+    <span
+      class="card__country overline"
+    >
+      
+            de
+        
+    </span>
+  </p>
+   
+  <p
+    class="card__date my-0 text-center caption"
+  >
+    
+        
+    
+  </p>
+   
+  <sunvisual-stub
+    clouds="10.5"
+    rain="2"
+  />
+   
+  <p
+    class="mainTemp text-center"
+  >
+    <span
+      class="display-2 font-weight-bold"
+    >
+      
+            15
+        
+    </span>
+     
+    <span
+      class="mainTemp__celsius"
+    >
+      ℃
+    </span>
+  </p>
+   
+  <statistics-stub
+    class="card__statistics"
+    weather="[object Object]"
+  />
+   
+  <timeperiods-stub
+    class="card__timePeriods"
+    periods="[object Object],[object Object]"
+  />
+</div>
+`;

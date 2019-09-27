@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SunVisual.vue should match initial snapshot 1`] = `
+<div
+  class="day"
+>
+  <!---->
+   
+  <!---->
+   
+  <font-awesome-icon-stub
+    class="day__sun"
+    icon="sun"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`SunVisual.vue should match snapshot when it is raining and cloudy 1`] = `
+<div
+  class="day"
+>
+  <font-awesome-icon-stub
+    class="day__cloud day__cloud--left"
+    icon="cloud"
+  />
+   
+  <font-awesome-icon-stub
+    class="day__cloud day__cloud--right"
+    icon="cloud"
+  />
+   
+  <font-awesome-icon-stub
+    class="day__sun"
+    icon="sun"
+  />
+   
+  <div>
+    <font-awesome-icon-stub
+      class="day__rain day__rain--left"
+      icon="tint"
+    />
+     
+    <font-awesome-icon-stub
+      class="day__rain day__rain--right"
+      icon="tint"
+    />
+  </div>
+</div>
+`;
