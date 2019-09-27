@@ -10,6 +10,7 @@ export default {
     humidity: 'humidity',
     search: 'search',
     now: 'now',
+    'select language': 'select language'
   },
   pl: {
     'Check Your city weather': 'Sprawdź pogodę w swoim mieście',
@@ -23,5 +24,6 @@ export default {
     humidity: 'wilgotność',
     search: 'szukaj',
     now: 'teraz',
+    'select language': 'wybierz język',
   },
 };

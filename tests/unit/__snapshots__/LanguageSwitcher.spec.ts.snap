@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageSwitcher.vue should match initial snapshot 1`] = `
+<div
+  class="lang d-flex text-center text-uppercase"
+>
+  <div
+    class="lang__btn"
+  >
+    
+        pl
+    
+  </div>
+  <div
+    class="lang__btn lang__btn--active"
+  >
+    
+        en
+    
+  </div>
+</div>
+`;
+
+exports[`LanguageSwitcher.vue should swap active button 1`] = `
+<div
+  class="lang d-flex text-center text-uppercase"
+>
+  <div
+    class="lang__btn lang__btn--active"
+  >
+    
+        pl
+    
+  </div>
+  <div
+    class="lang__btn"
+  >
+    
+        en
+    
+  </div>
+</div>
+`;

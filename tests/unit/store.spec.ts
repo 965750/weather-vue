@@ -56,6 +56,13 @@ describe('store', () => {
     expect(state.error).toBe('We could not find this city name');
   });
 
+  it('should set card on setLanguage', () => {
+    const language = 'en';
+    mutations.setLanguage(state, language);
+
+    expect(state.lang).toEqual(language);
+  });
+
   it('should set card on setCard', () => {
     mutations.setCard(state, weatherData);
 

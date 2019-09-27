@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/Statistics.vue</title>
+    <title>Code coverage report for src/components/LanguageSwitcher.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> Statistics.vue
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> LanguageSwitcher.vue
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>4/4</span>
       </div>
     </div>
   </div>
@@ -111,20 +111,8 @@
 66
 67
 68
-69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+69
+70</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,6 +131,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,73 +182,74 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-    &lt;div class="d-flex justify-center flex-wrap"&gt;
-        &lt;SingleAttribute
-            v-for="attr in attributes" :key="attr.label"
-            :icon="attr.icon"
-            :label="attr.label"
-            :value="attr.value"
-        /&gt;
+    &lt;div class="lang d-flex text-center text-uppercase"&gt;
+        &lt;div
+            v-for="language in languages"
+            :key="language"
+            :class="{lang__btn: true, 'lang__btn--active': getLanguage === language}"
+            @click="lang = language"
+        &gt;
+            {{ language }}
+        &lt;/div&gt;
     &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import SingleAttribute from './SingleAttribute.vue';
+import { mapGetters } from 'vuex';
 &nbsp;
 export default {
-  name: 'Statistics',
-  components: {
-    SingleAttribute,
-  },
-  props: {
-    weather: {
-      required: true,
-      type: Object,
-    },
+  name: 'LanguageSwitcher',
+  data() {
+    return {
+      lang: '',
+      languages: ['pl', 'en'],
+    };
   },
   computed: {
-    attributes() {
-      return [
-        {
-          value: `${this.$options.filters.kelvinsToCelsius(this.weather.minTemp)} \t\u2103`,
-          label: 'min. temp.',
-          icon: 'temperature-low',
-        },
-        {
-          value: `${this.$options.filters.kelvinsToCelsius(this.weather.maxTemp)} \t\u2103`,
-          label: 'max. temp.',
-          icon: 'temperature-high',
-        },
-        {
-          value: `${this.$options.filters.kelvinsToCelsius(this.weather.temp)} \t\u2103`,
-          label: 'mean temp.',
-          icon: 'thermometer-half',
-        },
-        {
-          value: `${this.$options.filters.kelvinsToCelsius(this.weather.mostCommon)} \t\u2103`,
-          label: 'mode temp.',
-          icon: 'thermometer-quarter',
-        },
-        {
-          value: `${this.weather.clouds}%`,
-          label: 'clouds',
-          icon: 'cloud',
-        },
-        {
-          value: `${this.weather.wind.toFixed(2)} m/s`,
-          label: 'wind',
-          icon: 'wind',
-        },
-        {
-          value: `${this.weather.humidity}%`,
-          label: 'humidity',
-          icon: 'tint',
-        },
-      ];
+    ...mapGetters(['getLanguage']),
+  },
+  mounted() {
+    this.lang = this.getLanguage;
+  },
+  watch: {
+    lang(val) {
+      this.$i18n.locale = val;
     },
   },
 };
 &lt;/script&gt;
+&nbsp;
+&lt;style lang="scss" scoped&gt;
+@import '../assets/main';
+&nbsp;
+.lang {
+    width: 70px;
+    border-radius: 30px;
+    height: 30px;
+    overflow: hidden;
+    color: #FFF;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+&nbsp;
+    &amp;__btn {
+        width: 50%;
+        background: $deepCerulean;
+        line-height: 30px;
+        cursor: pointer;
+        font-size: 14px;
+&nbsp;
+        &amp;--active {
+            background: darken($deepCerulean, 10%);
+            color: darken(#FFF, 10%);
+        }
+&nbsp;
+        &amp;:first-child {
+            border-right: 1px solid $aluminium;
+        }
+    }
+}
+&lt;/style&gt;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

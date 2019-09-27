@@ -2,7 +2,7 @@
 
 exports[`Search.vue should match initial snapshot 1`] = `
 <div
-  class="search my-5 mx-auto"
+  class="search mx-auto"
 >
   <p
     class="search__label my-0 pl-5"
@@ -24,7 +24,7 @@ exports[`Search.vue should match initial snapshot 1`] = `
     />
      
     <button
-      class="search__submit"
+      class="search__submit text-uppercase"
       disable="true"
       type="submit"
     >
@@ -46,7 +46,7 @@ exports[`Search.vue should match initial snapshot 1`] = `
 
 exports[`Search.vue should match snapshot without error notification 1`] = `
 <div
-  class="search my-5 mx-auto"
+  class="search mx-auto"
 >
   <p
     class="search__label my-0 pl-5"
@@ -68,7 +68,7 @@ exports[`Search.vue should match snapshot without error notification 1`] = `
     />
      
     <button
-      class="search__submit"
+      class="search__submit text-uppercase"
       disable="true"
       type="submit"
     >

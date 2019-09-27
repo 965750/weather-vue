@@ -26,4 +26,7 @@ export default {
   setCard__Error(state) {
     state.error = 'We could not find this city name';
   },
+  setLanguage(state, language) {
+    state.lang = language;
+  },
 };

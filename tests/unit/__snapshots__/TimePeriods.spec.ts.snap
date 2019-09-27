@@ -14,7 +14,7 @@ exports[`TimePeriods.vue should match initial snapshot with valid hour format 1`
     </p>
      
     <p
-      class="period__label my-0 caption"
+      class="period__label text-uppercase my-0 caption"
     >
       
             teraz
@@ -33,7 +33,7 @@ exports[`TimePeriods.vue should match initial snapshot with valid hour format 1`
     </p>
      
     <p
-      class="period__label my-0 caption"
+      class="period__label text-uppercase my-0 caption"
     >
       
             23:00

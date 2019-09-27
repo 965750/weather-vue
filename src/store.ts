@@ -25,6 +25,9 @@ export default new Vuex.Store({
           commit('setCard__Error', err);
         });
     },
+    changeLanguage({ commit }, lang: string) {
+      commit('setLanguage', lang);
+    },
   },
   mutations,
   getters,

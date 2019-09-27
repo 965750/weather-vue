@@ -7,7 +7,7 @@
             <p class="my-0 caption  font-weight-bold">
                 {{ Math.round(time.main.temp) | kelvinsToCelsius }} &#8451;
             </p>
-            <p class="period__label my-0 caption">
+            <p class="period__label text-uppercase my-0 caption">
                 {{
                     checkHour(time.time, index) === 'now' ?
                     $t(checkHour(time.time, index)) :
@@ -53,7 +53,6 @@ export default {
 
     &__label {
         color: $aluminium;
-        text-transform: uppercase;
     }
 }
 </style>

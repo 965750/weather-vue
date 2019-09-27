@@ -1,5 +1,5 @@
 <template>
-    <div class="search my-5 mx-auto">
+    <div class="search mx-auto">
         <p class="search__label my-0 pl-5">
             {{ $t('Check Your city weather') }}
         </p>
@@ -17,7 +17,7 @@
             />
             <button
                 :disable="!city"
-                class="search__submit"
+                class="search__submit text-uppercase"
                 type="submit"
             >
                 {{ $t('search') }}
@@ -67,7 +67,7 @@ export default {
     }
 
     &__form {
-        height: 50px;
+        height: 56px;
         overflow: hidden;
     }
 
@@ -86,7 +86,7 @@ export default {
         }
 
         &:focus {
-            border: 1px solid $deepCerulean;
+            border: 2px solid $deepCerulean;
         }
     }
 
@@ -103,7 +103,6 @@ export default {
         background: $deepCerulean;
         outline: none;
         color: #FFF;
-        text-transform: uppercase;
         font-size: 20px;
 
         &:hover {
