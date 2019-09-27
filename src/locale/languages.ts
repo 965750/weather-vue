@@ -4,6 +4,7 @@ export default {
     'city name': 'city name',
     'min. temp.': 'min. temp.',
     'max. temp.': 'max. temp.',
+    'mean temp.': 'mean temp.',
     'mode temp.': 'mode temp.',
     clouds: 'clouds',
     wind: 'wind',
