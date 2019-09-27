@@ -13,7 +13,7 @@ export default {
     'select language': 'select language'
   },
   pl: {
-    'Check Your city weather': 'Sprawdź pogodę w swoim mieście',
+    'Check Your city weather': 'Sprawdź pogodę w Twoim mieście',
     'city name': 'nazwa miasta',
     'min. temp.': 'min. temp.',
     'max. temp.': 'max. temp.',

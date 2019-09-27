@@ -8,7 +8,7 @@ exports[`Search.vue should match initial snapshot 1`] = `
     class="search__label my-0 pl-5"
   >
     
-        Sprawdź pogodę w swoim mieście
+        Sprawdź pogodę w Twoim mieście
     
   </p>
    
@@ -52,7 +52,7 @@ exports[`Search.vue should match snapshot without error notification 1`] = `
     class="search__label my-0 pl-5"
   >
     
-        Sprawdź pogodę w swoim mieście
+        Sprawdź pogodę w Twoim mieście
     
   </p>
    

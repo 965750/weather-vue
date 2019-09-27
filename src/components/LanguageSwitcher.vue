@@ -31,6 +31,7 @@ export default {
   watch: {
     lang(val) {
       this.$i18n.locale = val;
+      this.$store.dispatch('changeLanguage', val);
     },
   },
 };
@@ -56,9 +57,17 @@ export default {
         cursor: pointer;
         font-size: 14px;
 
+        &:hover {
+            background: lighten($deepCerulean, 5%);
+        }
+
         &--active {
             background: darken($deepCerulean, 10%);
             color: darken(#FFF, 10%);
+
+            &:hover {
+                background: darken($deepCerulean, 5%);
+            }
         }
 
         &:first-child {

@@ -38,8 +38,6 @@ Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
 
-console.log(11111111, store.getters.getLanguage)
-
 const i18n = new VueI18n({
   locale: store.getters.getLanguage,
   messages,
